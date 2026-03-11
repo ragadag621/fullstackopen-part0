@@ -1,16 +1,69 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+# 📱 Phonebook Application - FullStack Open Part 2
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This project is a modern **Phonebook Application** built as part of the **FullStack Open** course. It demonstrates a complete frontend-to-backend integration, focusing on state management, asynchronous data fetching, and clean UI design.
 
-## React Compiler
+## 🚀 Key Features
+- **Full CRUD Operations**: Create, Read, Update, and Delete contacts seamlessly.
+- **Live Search & Filtering**: Instantly find contacts by searching for names or phone numbers using a dynamic filter.
+- **Smart Data Validation**: Prevents duplicate names or numbers and prompts the user to update existing records instead.
+- **Interactive Notifications**: Custom-styled success and error messages that disappear automatically after a few seconds.
+- **Modern UI**: A clean, "Xone" inspired interface designed with performance and user experience in mind.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠️ Tech Stack
+- **React**: For building a component-based, reactive user interface.
+- **Axios**: Used for all HTTP requests (GET, POST, PUT, DELETE) to the backend.
+- **JSON Server**: Acts as a mock REST API for data persistence.
+- **CSS3**: Custom styles for a professional and responsive look.
 
-## Expanding the ESLint configuration
+## 📂 Project Architecture
+The code is organized into modular components to ensure maintainability:
+- `Filter`: Handles the search input and logic.
+- `PersonForm`: Manages user inputs for adding/updating contacts.
+- `Persons`: Displays the list and triggers delete/update actions.
+- `Notification`: Displays dynamic feedback (Success/Error) based on app state.
+- `services/Persons.js`: An abstracted layer for all API communications, keeping the logic clean.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## ⚙️ How to Run Locally
+
+
+1. **Clone the repository:**
+```bash
+git clone [https://github.com/ragadag621/fullstackopen-2026.git](https://github.com/ragadag621/fullstackopen-2026.git)
+
+```
+
+2. **Install dependencies:**
+```bash
+npm install
+
+```
+
+
+3. **Start the JSON Server (Backend):**
+```bash
+npm run server
+
+```
+
+
+4. **Run the React App (Frontend):**
+```bash
+npm run dev
+
+```
+
+
+
+## 💡 Lessons Learned
+
+* Managing complex states and side effects using `useState` and `useEffect`.
+* Handling asynchronous operations and Graceful Error Handling (e.g., handling 404s when a record is deleted from another client).
+* Structuring a React application for scalability and separating API services from UI components.
+
+---
+
+**Developed by: Raghad**
+*Programming Instructor & Passionate Web Developer*
+
