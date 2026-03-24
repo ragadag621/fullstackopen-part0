@@ -103,7 +103,6 @@ body {
   font-size: 0.85rem;
 }
 
-/* 4. Country Card - بطاقة التفاصيل */
 .country-card {
   border: 1px solid var(--border);
   border-radius: 24px;
@@ -130,7 +129,6 @@ body {
   text-align: center;
 }
 
-/* 5. Info Grid - شبكة المعلومات */
 .info-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -152,7 +150,6 @@ body {
   margin-bottom: 2px;
 }
 
-/* 6. Converter Section - المحول الأخضر */
 .converter-section {
   background: var(--bg-soft);
   padding: 20px;
@@ -189,7 +186,6 @@ body {
   font-weight: 800;
 }
 
-/* 7. Weather & Languages */
 .weather-card {
   background: linear-gradient(235deg, #77a6f2e3, #284eb6);
   color: white;
@@ -225,7 +221,6 @@ body {
   border: 1px solid #dbeafe;
 }
 
-/* 8. Footer Link */
 .map-link-btn {
   display: block;
   text-align: center;
@@ -239,7 +234,6 @@ body {
   font-size: 0.9rem;
 }
 
-/* Animations */
 @keyframes slideUp {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
