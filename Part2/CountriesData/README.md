@@ -1,16 +1,25 @@
-# React + Vite
+# 🌍 Countries Explorer & Weather Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A dynamic and interactive React application designed to explore global country data, integrated with real-time weather information and smart currency detection.
 
-Currently, two official plugins are available:
+## 🚀 Key Features
+- **Smart Search:** Real-time filtering of countries as you type.
+- **Detailed Insights:** View capital, area, languages, and official flags.
+- **Weather Integration:** Live weather updates for the selected country's capital using the `OpenWeatherMap API`.
+- **Location-Aware:** Automatic detection of user location to suggest local currency (In Progress 🛠️).
+- **Responsive UI:** A clean and modern user interface built with custom CSS.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🛠️ Tech Stack
+- **Frontend:** React (Vite)
+- **State Management:** React Hooks (`useState`, `useEffect`)
+- **API Communication:** Axios
+- **Styling:** CSS3 (Modern Flexbox/Grid)
 
-## React Compiler
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 📈 Upcoming Updates (Coming Soon! 🛠️)
+- **Automatic Location Detection:** Using IP to identify the user's country and local currency.
+- **Smart Currency Converter:** A dynamic tool to convert currencies between the user's location and the searched country.
+- **Custom Currency Selection:** A dropdown menu to manually select and compare global exchange rates.
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+**Developed by: Raghad Aghbaria**
