@@ -1,7 +1,7 @@
-const mongoose = require("mongoose")
+const mongoose = require('mongoose')
 
 if (process.argv.length < 3) {
-  console.log("give password as argument")
+  console.log('give password as argument')
   process.exit(1)
 }
 
@@ -9,7 +9,7 @@ const password = process.argv[2]
 
 const url = `mongodb+srv://ragadag62_db_user:${password}@cluster0.t7ysymh.mongodb.net/phonebookApp?retryWrites=true&w=majority`
 
-mongoose.set("strictQuery", false)
+mongoose.set('strictQuery', false)
 mongoose.connect(url)
 
 const personSchema = new mongoose.Schema({
@@ -17,7 +17,7 @@ const personSchema = new mongoose.Schema({
   number: String,
 })
 
-const Person = mongoose.model("Person", personSchema)
+const Person = mongoose.model('Person', personSchema)
 
 // const initialPersons = [
 //     { name: "Arto Hellas", number: "040123456" },
@@ -48,7 +48,7 @@ const Person = mongoose.model("Person", personSchema)
 //   })
 
 if (process.argv.length === 3) {
-  console.log("phonebook:")
+  console.log('phonebook:')
   Person.find({}).then((result) => {
     result.forEach((person) => {
       console.log(`${person.name} ${person.number}`)
