@@ -50,12 +50,11 @@ const App = () => {
     }
   }
 
-  const addPerson = (event) => {
+ const addPerson = (event) => {
     event.preventDefault()
 
     if (newName.trim() === "" || number.trim() === "") {
       alert("Please check Your input, name and number cannot be empty")
-      console.log("input is empty")
       return
     }
 
@@ -66,16 +65,13 @@ const App = () => {
 
     if (existingName) {
       if (window.confirm(`${newName} is already added, replace number?`)) {
-        console.log("updating", existingName.id, { ...existingName, number })
         updatePerson(existingName.id, { ...existingName, number: number })
       }
       return
     }
 
     if (existingNum) {
-      if (
-        window.confirm(`${number} is already used, replace name to ${newName}?`)) {
-        console.log("updating", existingNum.id, { ...existingNum, name: newName })
+      if (window.confirm(`${number} is already used, replace name to ${newName}?`)) {
         updatePerson(existingNum.id, { ...existingNum, name: newName })
       }
       return
@@ -85,14 +81,16 @@ const App = () => {
       .create({ name: newName, number: number })
       .then((returnedPerson) => {
         setPersons(persons.concat(returnedPerson))
-
         setNewName("")
         setNewNumber("")
-        console.log("added", returnedPerson)
         setMessageType("success")
         setMessage(`Added ${returnedPerson.name}`)
         setTimeout(() => setMessage(null), 5000)
-
+      })
+      .catch((error) => {
+        setMessageType("error")
+        setMessage(error.response.data.error)
+        setTimeout(() => setMessage(null), 5000)
       })
   }
 
@@ -108,14 +106,16 @@ const App = () => {
         setNewNumber("")
       })
       .catch((error) => {
-        console.log(error)
         setMessageType("error")
-        setMessage(
-          `Information of ${changedPerson.name} has already been removed from server`,
-        )
-
+        
+        if (error.response && error.response.data && error.response.data.error) {
+          setMessage(error.response.data.error)
+        } else {
+          setMessage(`Information of ${changedPerson.name} has already been removed from server`)
+          setPersons(persons.filter((p) => p.id !== id))
+        }
+        
         setTimeout(() => setMessage(null), 5000)
-        setPersons(persons.filter((p) => p.id !== id))
       })
   }
 

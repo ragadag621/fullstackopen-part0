@@ -41,31 +41,22 @@ app.get("/api/persons/:id", (req, res,next) => {
 
 })
 
-app.post("/api/persons", (req, res,next) => {
+
+
+app.post("/api/persons", (req, res, next) => {
   const body = req.body
-
-  if (!body.name || !body.number) {
-    return res.status(400).json({ error: "name or number is missing" })
-  }
-
-  Person.findOne({ name: body.name }).then(existingPerson => {
-    if (existingPerson) {
-      return res.status(400).json({ error: "name must be unique" })
-    }
-
-    const person = new Person({
-      name: body.name,
-      number: body.number,
-    })
-
-    person.save()
-      .then(savedPerson => {
-        console.log(`added ${savedPerson.name} to phonebook`)
-        res.json(savedPerson) 
-      })
-      .catch(error => next(error))
+  const person = new Person({
+    name: body.name,
+    number: body.number,
   })
+  person.save()
+    .then(savedPerson => {
+      res.json(savedPerson) 
+    })
+    .catch(error => next(error)) 
 })
+
+
 
 app.put("/api/persons/:id", (req, res,next) => {
   const body = req.body
@@ -74,8 +65,12 @@ app.put("/api/persons/:id", (req, res,next) => {
     number: body.number,
   }
   Person.findByIdAndUpdate(req.params.id, person, { new: true , runValidators: true, context: 'query' })
-    .then(updatedPerson => {
-      res.json(updatedPerson)
+    .then(updatedPerson => 
+      {if (updatedPerson) {
+        res.json(updatedPerson)
+      } else {
+        res.status(404).end()
+      }
     })
    .catch(error => next(error))      
 })

@@ -20,7 +20,7 @@ const PersonForm = ({
           <tr>
             <td>number:</td>
             <td>
-              <input type="number" value={number} onChange={handleNumberChange} />
+              <input  value={number} onChange={handleNumberChange} />
               <br />
             </td>
           </tr>
